@@ -3,16 +3,19 @@ public class PalindromeCheckerApp {
         String word = "madam";
         boolean isPalindrome = true;
         int n = word.length() - 1;
-        for (int i=0; i < word.length()/2; i++) {
-            if (word.charAt(i) != word.charAt(n- i)) {
+        int start = 0;
+        for (int i = n; i>0; i--){
+            if (word.charAt(i) != word.charAt(start)) {
                 isPalindrome = false;
                 break;
             }
+            start++;
+
         }
         if (isPalindrome) {
-            System.out.println(word + " is a palindrme");
+            System.out.println(word + "is a Palindrome");
         } else {
-            System.out.println(word + " is not a Palindrome");
+            System.out.println(word + "is not a Palindrome");
         }
     }
 }
