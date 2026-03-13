@@ -1,26 +1,30 @@
-import java.util.Scanner;
-import java.util.Stack;
-
+import java.util.*;
 
 public class PalindromeCheckerApp {
     static void main( String[] args) {
 
+
                 Scanner sc = new Scanner(System.in);
+
+                Queue<Character> queue = new LinkedList<>();
                 Stack<Character> stack = new Stack<>();
 
                 System.out.print("Enter a string: ");
                 String str = sc.nextLine();
 
-                // Push characters into stack
+                // Insert characters into queue and stack
                 for (int i = 0; i < str.length(); i++) {
-                    stack.push(str.charAt(i));
+                    char ch = str.charAt(i);
+                    queue.add(ch);     // Enqueue
+                    stack.push(ch);    // Push
                 }
 
                 boolean isPalindrome = true;
 
-                // Pop and compare
+                // Compare dequeue and pop
                 for (int i = 0; i < str.length(); i++) {
-                    if (str.charAt(i) != stack.pop()) {
+
+                    if (queue.remove() != stack.pop()) {
                         isPalindrome = false;
                         break;
                     }
